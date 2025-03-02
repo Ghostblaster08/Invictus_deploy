@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../styles/MedicineForm.css';  // Import the external CSS
 
 const MedicineForm = ({ patientId }) => {
   const [medicationDetails, setMedicationDetails] = useState({
@@ -11,6 +12,8 @@ const MedicineForm = ({ patientId }) => {
     instructions: "",
   });
 
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setMedicationDetails({
@@ -21,15 +24,20 @@ const MedicineForm = ({ patientId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here, you can handle the API call to add the medicine for the patient
+    // Handle API call here if needed
     console.log("Medicine added for patient:", patientId);
     console.log(medicationDetails);
+    setShowModal(true); // Show the modal after submitting the form
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false); // Close the modal
   };
 
   return (
-    <div className="medicine-form">
-      <h3>Add Medicine for Patient ID: {patientId}</h3>
-      <form onSubmit={handleSubmit}>
+    <div className="medicine-form-container">
+      <h3 className="header">Add Medicine for Patient ID: {patientId}</h3>
+      <form onSubmit={handleSubmit} className="medicine-form">
         <label>
           Medication ID:
           <input
@@ -37,6 +45,7 @@ const MedicineForm = ({ patientId }) => {
             name="medicationId"
             value={medicationDetails.medicationId}
             onChange={handleChange}
+            className="input-field"
           />
         </label>
         <label>
@@ -46,6 +55,7 @@ const MedicineForm = ({ patientId }) => {
             name="name"
             value={medicationDetails.name}
             onChange={handleChange}
+            className="input-field"
           />
         </label>
         <label>
@@ -55,6 +65,7 @@ const MedicineForm = ({ patientId }) => {
             name="dosage"
             value={medicationDetails.dosage}
             onChange={handleChange}
+            className="input-field"
           />
         </label>
         <label>
@@ -64,6 +75,7 @@ const MedicineForm = ({ patientId }) => {
             name="frequency"
             value={medicationDetails.frequency}
             onChange={handleChange}
+            className="input-field"
           />
         </label>
         <label>
@@ -73,6 +85,7 @@ const MedicineForm = ({ patientId }) => {
             name="startDate"
             value={medicationDetails.startDate}
             onChange={handleChange}
+            className="input-field"
           />
         </label>
         <label>
@@ -82,6 +95,7 @@ const MedicineForm = ({ patientId }) => {
             name="endDate"
             value={medicationDetails.endDate}
             onChange={handleChange}
+            className="input-field"
           />
         </label>
         <label>
@@ -90,10 +104,22 @@ const MedicineForm = ({ patientId }) => {
             name="instructions"
             value={medicationDetails.instructions}
             onChange={handleChange}
+            className="textarea-field"
           />
         </label>
-        <button type="submit">Add Medicine</button>
+        <button type="submit" className="submit-btn">Add Medicine</button>
       </form>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h4>Medicine Added Successfully!</h4>
+            <p>Medicine details have been saved for Patient ID: {patientId}.</p>
+            <button onClick={handleCloseModal} className="close-btn">Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -102,7 +102,7 @@ const HealthReports = () => {
   return (
     <div className="health-reports-container">
       {/* Audio element for the alert sound */}
-      <audio ref={audioRef} src="/sounds/venator_class_alarm.mp3" preload="auto" />
+      <audio ref={audioRef} src="/sounds/bappuji.mp3" preload="auto" />
       
       {/* Health Score Gauge */}
       <div className="card health-score-card">
