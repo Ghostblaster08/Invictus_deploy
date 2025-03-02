@@ -1,0 +1,62 @@
+/* Header styling */
+.header {
+  background: linear-gradient(135deg, #66D2CE, #05b8af);
+  display: flex;
+  justify-content: end; /* Distribute items evenly */
+  align-items: center;
+  padding: 15px 30px; /* Increased padding for better spacing */
+  font-size: 22px;
+  font-weight: bold;
+  gap: 15px;
+  color: #EAEAEA;
+  border-bottom: 3px solid #EAEAEA;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.header-title {
+  font-size: 28px; /* Slightly larger title for better prominence */
+  font-weight: bold;
+  letter-spacing: 2px; /* Increased letter-spacing for more definition */
+  margin-right: 20px; /* Space between title and user icon */
+  text-align: right; /* Aligns the text towards the right */
+}
+
+/* User icon styling */
+.user-icon {
+  margin-top: 10px;
+  font-size: 60px; /* Adjusted for more balanced size */
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease, font-size 0.3s ease; /* Smoother transition */
+}
+
+.user-icon:hover {
+  transform: scale(1.2); /* Slightly bigger scale on hover */
+  color: #ffcc00; /* Change color on hover */
+  font-size: 45px; /* Slightly increase the size when hovered */
+}
+
+/* Left icons (notification & translation) */
+.left-icons {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between icons */
+}
+
+.icon {
+  cursor: pointer;
+  font-size: 40px; /* Increased size of icons */
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #ffcc00; /* Change color on hover */
+}
+
+/* Move notification & translate icons to the right */
+.right-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between icons */
+}
